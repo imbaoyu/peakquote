@@ -1,3 +1,3 @@
-SmartQuote
+PeakQuote 0.01
 ======
-A simple quote system in AngularJS and Node.js
+A simple online quote system written in AngularJS and Node.js
