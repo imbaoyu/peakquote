@@ -21,18 +21,15 @@ var quoteSchema = mongoose.Schema({
 
 quoteSchema.methods.print = function() {
 	return JSON.stringify(this);
-}
+};
 
 quoteSchema.methods.insert = function(cb) {
 	var that = this;
 	var tryinsert = function(callback){
-		console.log("tryinsert procedure");
 		that.model('Quote').findOne({}, 'seq').sort({seq:-1}).exec(function(err, quote) {
-			console.log("exec procedure");
 			if(quote == null) that.seq = 1;
 			else that.seq = quote.seq + 1;
 			that.save(function(err, quote) {
-				console.log("save procedure");
 				if(err) {
 					if(err.code == 11000)tryinsert(cb);
 					else callback(null, err);
@@ -41,7 +38,7 @@ quoteSchema.methods.insert = function(cb) {
 		});
 	};
 	tryinsert(cb);
-}
+};
 
 var Quote = mongoose.model('Quote', quoteSchema);
 

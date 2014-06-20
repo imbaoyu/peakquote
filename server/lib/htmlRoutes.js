@@ -1,6 +1,7 @@
 var security = require('./security-mongo');
 var usermodel = require('../models/users.js');
 var quotemodel = require('../models/quotes.js');
+var contactmodel = require('../models/contacts.js');
 
 module.exports = function(app) {
 	/* private functions */
@@ -42,6 +43,18 @@ module.exports = function(app) {
 		});		
 	});
 
+	app.post('/login', function(req, res) {
+		security.login(req, res, function(err){
+			console.log(JSON.stringify(err));
+			res.send({});
+		});
+	});
+
+	app.get('/logout', function(req, res) {
+		security.logout(req, res, null);
+	});
+
+	/* quotes related routes */
 	app.get('/quotes', function(req, res) {
 		security.authenticationRequired(req, res, function(){
 			var query = {};
@@ -131,6 +144,7 @@ module.exports = function(app) {
 		});
 	});
 
+	/* user related routes */
 	app.get('/users', function(req, res) {
 		security.adminRequired(req, res, function() {
 			usermodel.find({}, function(err, users) {
@@ -146,27 +160,26 @@ module.exports = function(app) {
 				if(user)
 					res.send(user);
 				else
-  				res.send(404, "user Not Found");
+  				res.send(404, "User Not Found");
 			});
 		});
 	});
 
 	app.post('/users', function(req, res) {
 		security.adminRequired(req, res, function() {
+
+			/* TODO: validate the user input*/
   		var userdata = {};
-			usermodel.findOne({}, 'userid').sort({userid:-1}).exec(function(err, user) {
-  			userdata.userid = (parseInt(user.userid)+1).toString();
-				userdata.email = req.body.email;
-				userdata.password = req.body.password;
-				userdata.firstName = req.body.firstName;
-				userdata.lastName = req.body.lastName;
-				userdata.admin = req.body.admin;
-				var user = new usermodel(userdata);
-				user.save(function(err, user) {
-					if(err) res.send(500, "Save user Failed");
-					res.send(user);
-				});
-			});			
+			userdata.email = req.body.email;
+			userdata.password = req.body.password;
+			userdata.firstName = req.body.firstName;
+			userdata.lastName = req.body.lastName;
+			userdata.admin = req.body.admin;
+			var user = new usermodel(userdata);
+			user.insert(function(result, err){
+				if(err)res.send(err);
+				else res.send(result);
+			});
 		});
 	});
 
@@ -192,7 +205,7 @@ module.exports = function(app) {
 		});
 	});
 
-	app.delete('users/:id', function(req, res) {
+	app.delete('/users/:id', function(req, res) {
 		security.adminRequired(req, res, function() {
 			for(var i = 0; i < config.security.usersCollection.length; i++) {
 				if(config.security.usersCollection[i].id == req.body.id) {
@@ -202,17 +215,82 @@ module.exports = function(app) {
 			}		
 		});
 	});
-
-	app.post('/login', function(req, res) {
-		security.login(req, res, function(err){
-			console.log(JSON.stringify(err));
-			res.send({});
+	
+	/* contact related routes */
+	app.get('/contacts', function(req, res) {
+		security.authenticationRequired(req, res, function() {
+			contactmodel.find({}, function(err, contacts) {
+				res.send(contacts);					
+			});			
 		});
 	});
 
-	app.get('/logout', function(req, res) {
-		security.logout(req, res, null);
+	app.get('/contacts/:contactid', function(req, res) {
+		security.authenticationRequired(req, res, function() {
+			contactmodel.findOne({'contactid':req.params.contactid}, function(err, contact) {
+				console.log("looking for contact with contactid:" + req.params.contactid);
+				if(contact)
+					res.send(contact);
+				else
+  				res.send(404, "Contact Not Found");
+			});
+		});
 	});
+
+	app.post('/contacts', function(req, res) {
+		security.authenticationRequired(req, res, function() {
+
+			/* TODO: validate the user input*/
+  		var contactdata = {};
+			contactdata.firstName = req.body.firstName;
+			contactdata.lastName = req.body.lastName;
+			contactdata.company = req.body.company;
+			contactdata.title = req.body.title;
+			contactdata.email = req.body.email;
+			contactdata.phone = req.body.phone;
+			contactdata.street = req.body.street;
+			contactdata.city = req.body.city;
+			contactdata.state = req.body.state;
+			contactdata.zip = req.body.zip;
+			contactdata.country = req.body.country;
+			coutactdata.note = req.body.note;
+			var contact = new contactmodel(contactdata);
+			contact.insert(function(result, err){
+				if(err)res.send(err);
+				else res.send(result);
+			});
+		});
+	});
+
+	app.post('/contacts/:contactid', function(req, res) {
+		security.authenticationRequired(req, res, function() {
+			contactmodel.findOne({'contactid':req.params.contactid}, function(err, doc) {
+				if(doc != null) {
+					doc.firstName = req.body.firstName;
+					doc.lastName = req.body.lastName;
+					doc.company = req.body.company;
+					doc.title = req.body.title;
+					doc.email = req.body.email;
+					doc.phone = req.body.phone;
+					doc.street = req.body.street;
+					doc.city = req.body.city;
+					doc.state = req.body.state;
+					doc.zip = req.body.zip;
+					doc.country = req.body.country;
+					doc.note = req.body.note;
+					doc.save(function(err, user) {
+						console.log("doc saved: " + JSON.stringify(user));
+						if(err) res.send(500, "Update User Failed");
+						else res.send(user);
+					});
+				} else {
+					console.log("Did not find user");
+					if(err) res.send(500, "Update User Failed");
+				}
+			})		
+		});
+	});
+
 
 	/* safety net */
 	app.all('/*.html', function(req, res, next) {
