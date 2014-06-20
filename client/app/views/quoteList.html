@@ -1,0 +1,31 @@
+<h1 class="page-header">Quote List</h1>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Seq</th>
+				<th>Customer Name</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Phone Number</th>
+				<th>Bill</th>
+				<th>Utility Name</th>
+				<th>Sold?</th>
+				<th ng-show="isadmin">Createdby</th>
+			<tr>
+		<thead>
+		<tbody>
+  		<tr ng-repeat="quote in quotes">
+				<td><a ng-href="/#/quotes/view/{{quote.seq}}">{{quote.seq}}</a></td>
+				<td>{{quote.firstName}} {{quote.lastName}}</td>
+				<td>{{quote.email}}</td>
+				<td>{{quote.address}} {{quote.zip}}</td>
+				<td>{{quote.phoneNumber}}</td>
+				<td>{{quote.lowBill}} - {{quote.highBill}}</td>
+				<td>{{quote.utiliyiName}} {{quote.roofType}}</td>
+				<td>{{quote.sold}}</td>
+				<td ng-show="isadmin">{{quote.createdby}}</td>
+  		</tr>
+		</tbody>
+	</table>
+</div>

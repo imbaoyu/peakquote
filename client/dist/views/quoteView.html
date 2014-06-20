@@ -1,0 +1,25 @@
+<h3>{{quote.quoteId}} {{quote.firstName}} {{quote.lastName}}</h3>
+
+<h3>Quote Details</h3>
+<dl class="unstyled">
+  <dd><span>Email: {{quote.email}}</span></dd>
+  <dd><span>Address: {{quote.address}}</span></dd>
+  <dd><span>ZIP: {{quote.zip}}</span></dd>
+  <dd><span>Phone Number: {{quote.phoneNumber}}</span></dd>
+  <dd><span>High Bill: {{quote.highBill}}</span></dd>
+  <dd><span>Low Bill: {{quote.lowBill}}</span></dd>
+  <dd><span>Utility Name: {{quote.utilityName}}</span></dd>
+  <dd><span>Roof Type: {{quote.roofType}}</span></dd>
+  <dd><span>Sold? {{quote.sold}}</span></dd>
+</dl>
+
+<h3>Comments</h3>
+<div>{{quote.notes}}</div>
+<h3>Attachments</h3>
+<div>{{quote.attachments}}</div>
+
+<form ng-submit="edit()" class="form-horizontal">
+  <div class="form-actions">
+    <button class="btn btn-primary">Edit</button>
+  </div>
+</form>

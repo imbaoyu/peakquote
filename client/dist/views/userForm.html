@@ -1,0 +1,35 @@
+<form name="userForm" ng-submit="save()" class="form-horizontal">
+	Create New User
+  <div class="control-group">
+   	<label class="control-label">Email Address</label>
+  	<div class="controls">
+    	<input type="text" ng-model="user.email" class="input-small" id="firstName">
+    </div>
+
+   	<label class="control-label">First Name</label>
+  	<div class="controls">
+    	<input type="text" ng-model="user.firstName" class="input-small" id="firstName">
+    </div>
+
+   	<label class="control-label">Last Name</label>
+  	<div class="controls">
+    	<input type="text" ng-model="user.lastName" class="input-small" id="firstName">
+    </div>
+
+   	<label class="control-label">Password</label>
+		<div class="controls">
+    	<input type="password" ng-model="user.password" class="input-small" id="lastName">
+		</div>
+
+   	<label class="control-label">Is admin?</label>
+		<div class="controls">
+    	<input type="checkbox" ng-model="user.admin" class="input-small" id="admin">
+		</div>
+
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
+    <button type="button" ng-click="remove()" ng-show="!user.id" class="btn">Delete</button>
+  </div>
+</form>

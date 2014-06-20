@@ -1,0 +1,213 @@
+/* Space out content a bit */
+body {
+				padding-top: 20px;
+				padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+				.marketing,
+				.footer {
+								padding-left: 15px;
+								padding-right: 15px;
+				}
+
+/* Custom page header */
+.header {
+				border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+				margin-top: 0;
+				margin-bottom: 0;
+				line-height: 40px;
+				padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+				padding-top: 19px;
+				color: #777;
+			 	border-top: 1px solid #e5e5e5;
+}
+
+.sidebar {
+				position: fixed;
+				top: 51px;
+				bottom: 0;
+				left: 0;
+				z-index: 1000;
+				display: block;
+				padding: 20px;
+				overflow-x: hidden;
+				overflow-y: auto;
+				background-color: #f5f5f5;
+				border-right: 1px solid #eee;
+}
+
+.nav-sidebar {
+				margin-right: -21px;
+				margin-bottom: 20px;
+				margin-left: -20px;
+}
+
+.main {
+				padding: 20px;
+				padding-right: 40px;
+				padding-left: 40px;
+}
+
+.nav-sidebar {
+				margin-right: -21px;
+				margin-bottom: 20px;
+				margin-left: -20px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+				.container {
+								max-width: 730px;
+				}
+}
+
+.container-narrow > hr {
+margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+				text-align: center;
+				border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+				font-size: 21px;
+padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+margin: 40px 0;
+}
+.marketing p + h4 {
+				margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+				/* Remove the padding we set earlier */
+				.header,
+								.marketing,
+								.footer {
+												padding-left: 0;
+												padding-right: 0;
+								}
+				/* Space out the masthead */
+				.header {
+								margin-bottom: 30px;
+				}
+				/* Remove the bottom border on the jumbotron for visual effect */
+				.jumbotron {
+								border-bottom: 0;
+				}
+}
+
+#login-wraper {
+				-webkit-border-radius: 15px;
+				-moz-border-radius: 15px;
+				-ms-border-radius: 15px;
+				-o-border-radius: 15px;
+				border-radius: 15px;
+				-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+				box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+				
+				position: absolute;
+				top: 45%;
+				left: 50%;
+				display: block;
+				margin-top: -185px;
+				margin-left: -235px;
+				padding: 25px;
+				width: 370px;
+				height: 320px;
+				background: white;
+				text-align: center;
+}
+
+.blue {
+color: #447fc8;
+}
+
+.login-form legend {
+				font-family: 'Lato', Helvetica, sans-serif;
+				font-size: 36px;
+				font-weight: 300;
+color: #333333;
+			 -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* ###### */
+/* $FONTS */
+/* ###### */
+/* navigation */
+
+/* login form */
+.login-form legend {
+				font-family: 'Lato', Helvetica, sans-serif;
+				font-size: 36px;
+				font-weight: 300;
+color: #333333;
+			 -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.login-form label {
+				font-family: 'Lato', Helvetica, sans-serif;
+				font-size: 20px;
+color: #333333;
+			 font-weight: 300;
+}
+
+/* register form */
+#register-form legend {
+				font-family: 'Lato', Helvetica, sans-serif;
+				font-size: 36px;
+				font-weight: 300;
+color: #333333;
+			 -webkit-font-smoothing: subpixel-antialiased;
+}
+#register-form label {
+				font-family: 'Lato', Helvetica, sans-serif;
+				font-size: 18px;
+color: #333333;
+			 font-weight: 300;
+}
+
+/* register info */
+#register-info h1 {
+				font-size: 42px;
+				font-family: "PT Sans", Arial, Helvetica, sans-serif;
+				line-height: 55px;
+				font-weight: 700;
+				text-align: right;
+				padding-bottom: 50px;
+color: white;
+}
+
+#register-info ul {
+				text-align: right;
+color: white;
+			 font-size: 24px;
+			 font-family: "PT Sans", Arial, Helvetica, sans-serif;
+}
+
+/* footer */
+footer.navbar-fixed-bottom {
+				font-size: 16px;
+				font-family: "PT Sans", Arial, Helvetica, sans-serif;
+				line-height: 18px;
+				font-weight: 400;
+}
+
+
+

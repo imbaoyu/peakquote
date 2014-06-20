@@ -1,0 +1,84 @@
+<form name="quoteForm" ng-submit="save()" class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="ID">Quote ID:</label>
+    <div class="controls">
+      <input ng-model="quote.quoteId" class="input-xlarge" id="ID" focus="" required="">
+    </div>
+  </div>
+
+  <div class="control-group">
+   	<label class="control-label" for="firstName">First Name</label>
+  	<div class="controls">
+    	<input ng-model="quote.firstName" class="input-small" id="firstName">
+    </div>
+
+   	<label class="control-label" for="lastName">Last Name</label>
+		<div class="controls">
+    	<input ng-model="quote.lastName" class="input-small" id="lastName">
+		</div>
+
+   	<label class="control-label" for="email">Email</label>
+		<div class="controls">
+    	<input ng-model="quote.email" class="input-small" id="email">
+		</div>
+
+    <label class="control-label" for="address">Address</label>
+		<div class="controls">
+      <input ng-model="quote.address" class="input-small" id="address">
+		</div>
+
+    <label class="control-label" for="zip">Zip</label>
+		<div class="controls">
+      <input ng-model="quote.zip" class="input-small" id="zip">
+		</div>
+
+    <label class="control-label" for="phoneNumber">Phone Number</label>
+		<div class="controls">
+      <input ng-model="quote.phoneNumber" class="input-small" id="phoneNumber">
+		</div>
+
+    <label class="control-label" for="highBill">High Bill</label>
+		<div class="controls">
+      <input ng-model="quote.highBill" class="input-small" id="highBill">
+		</div>
+
+    <label class="control-label" for="lowBill">Low Bill</label>
+		<div class="controls">
+      <input ng-model="quote.lowBill" class="input-small" id="lowBill">
+		</div>
+
+    <label class="control-label" for="utilityName">Utility Name</label>
+		<div class="controls">
+      <input ng-model="quote.utilityName" class="input-small" id="utilityName">
+		</div>
+
+    <label class="control-label" for="rppfType">Roof Type</label>
+		<div class="controls">
+      <input ng-model="quote.roofType" class="input-small" id="roofType">
+		</div>
+
+    <label class="control-label" for="sold">Sold</label>
+		<div class="controls">
+      <input ng-model="quote.sold" class="input-small" id="sold">
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="notes">Notes</label>
+    <div class="controls">
+      <textarea ng-model="quote.notes" class="input-xlarge" id="notes"></textarea>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="attachments">Attachments</label>
+    <div class="controls">
+      <textarea ng-model="quote.attachments" class="input-xxlarge" id="attachments"></textarea>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn btn-primary" ng-disabled="quoteForm.$invalid">Save</button>
+    <button type="button" ng-click="remove()" ng-show="!quote.id" class="btn">Delete</button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<h1 class="page-header">View User</h1>
+<h3>{{user.email}}</h3>
+<h3>User Details</h3>
+<dl class="unstyled">
+	<dd>Name: {{user.fistName}} {{user.lastName}}</dd>
+	<dd>Password: {{user.password}}</dd>
+	<dd>Is Admin? {{user.admin}}</dd>
+</dl>
+
+<form ng-submit="edit()" class="form-horizontal">
+  <div class="form-actions">
+    <button class="btn btn-primary">Edit</button>
+  </div>
+</form>

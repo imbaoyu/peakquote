@@ -1,4 +1,3 @@
-peakquote
-=========
-
-a simple online quote system
+SmartQuote
+======
+A simple quote system in AngularJS and Node.js

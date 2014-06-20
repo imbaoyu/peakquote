@@ -1,0 +1,19 @@
+<h1 class="page-header">User List</h1>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Username</th>
+				<th>Name</th>
+				<th>Admin?</th>
+			<tr>
+		<thead>
+		<tbody>
+  		<tr ng-repeat="user in users">
+				<td><a ng-href="/#/users/view/{{user.userid}}">{{user.email}}</a></td>
+				<td>{{user.firstName}} {{user.lastName}}</td>
+				<td>{{user.admin}}</td>
+  		</tr>
+		</tbody>
+	</table>
+</div>

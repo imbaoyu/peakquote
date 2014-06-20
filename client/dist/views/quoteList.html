@@ -1,0 +1,24 @@
+<ul class="quotes">
+	<table border="1">
+		<tr>
+			<th>Quote ID</th>
+			<th>Customer Name</th>
+			<th>Email</th>
+			<th>address</th>
+			<th>phone number</th>
+			<th>bill</th>
+			<th>utility name</th>
+			<th>sold?</th>
+		</tr><tr>
+  	</tr><tr ng-repeat="quote in quotes">
+			<td><a ng-href="/#/view/{{quote.id}}">{{quote.quoteId}}</a></td>
+			<td>{{quote.firstName}} {{quote.lastName}}</td>
+			<td>{{quote.email}}</td>
+			<td>{{quote.address}} {{quote.zip}}</td>
+			<td>{{quote.phoneNumber}}</td>
+			<td>{{quote.lowBill}} - {{quote.highBill}}</td>
+			<td>{{quote.utiliyiName}} {{quote.roofType}}</td>
+			<td>{{quote.sold}}</td>
+  	</tr>
+	</table>
+</ul>

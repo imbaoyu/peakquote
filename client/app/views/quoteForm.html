@@ -1,0 +1,112 @@
+<h1 class="page-header">New Quote</h1>
+<div class="col-md-4">
+<form name="quoteForm" ng-submit="save()" class="form-horizontal" role="form">
+
+  <div class="form-group">
+   	<label class="control-label col-sm-4" for="firstName">First Name</label class="control-label col-sm-4" for="">
+  	<div class="controls col-sm-6">
+      <input type="text" id="firstName" class="form-control" ng-model="quote.firstName" placeholder="Enter First Name" required>
+    </div>
+	</div>
+
+  <div class="form-group">
+   	<label class="control-label col-sm-4" for="lastName">Last Name</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="lastName" class="form-control" ng-model="quote.lastName" placeholder="Enter Last Name" required>
+		</div>
+	</div>
+
+  <div class="form-group">
+   	<label class="control-label col-sm-4" for="email">Email</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id=email"" class="form-control" ng-model="quote.email" placeholder="Enter Email">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="address">Address</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="address" class="form-control" ng-model="quote.address" placeholder="Enter Address">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="zip">Zip</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="zip" class="form-control" ng-model="quote.zip" placeholder="Enter Zip">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="phoneNumber">Phone Number</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" for="phoneNumber" class="form-control" ng-model="quote.phoneNumber" placeholder="Enter Phone Number">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="quoteId">Quote ID:</label class="control-label col-sm-4" for="">
+    <div class="controls col-sm-6">
+      <input type="text" id="quoteId" class="form-control" ng-model="quote.quoteId" placeholder="Enter Quote ID" focus required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="highBill">High Bill</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="highBill" class="form-control" ng-model="quote.highBill" placeholder="Enter High Bill">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="lowBill">Low Bill</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="lowBill" class="form-control" ng-model="quote.lowBill" placeholder="Enter Low Bill">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="utilityName">Utility Name</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" id="utilityName" class="form-control" ng-model="quote.utilityName" placeholder="Enter Utility Name">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="roofType">Roof Type</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+      <input type="text" for="roofType" class="form-control" ng-model="quote.roofType" placeholder="Enter Roof Type">
+		</div>
+	</div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="sold">Sold</label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+    	<input type="checkbox" id="sold" ng-model="quote.sold">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="notes">Notes</label class="control-label col-sm-4" for="">
+    <div class="controls col-sm-6">
+      <textarea id="notes" ng-model="quote.notes" class="form-control" placeholder="Enter Notes"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-4" for="attachment">Attachments</label class="control-label col-sm-4" for="">
+    <div class="controls col-sm-6">
+      <textarea id="attachment" ng-model="quote.attachments" class="form-control" placeholder="Enter Attachment File"></textarea>
+    </div>
+  </div>
+
+  <!--div class="form-actions"-->
+	<div class="form-group">
+		<label class="control-label col-sm-4"></label class="control-label col-sm-4" for="">
+		<div class="controls col-sm-6">
+    	<button class="btn btn-primary" ng-disabled="quoteForm.$invalid">Save</button>
+    	<button type="button" ng-click="remove()" ng-show="!quote.seq" class="btn">Delete</button>
+		</div>
+  </div>
+</form>
+</div>
